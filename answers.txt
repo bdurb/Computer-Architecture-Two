@@ -1,0 +1,33 @@
+1. The minimum seek time for an HDD is 9msec, and the maximum seek time is 90msec. The block size of this HDD is 4KB. How long on average does it take to read 100MB of data?
+
+- it depends on a few things.  The rotation speed of the hard disk, as well as which track the data is stored on, and how many tracks there are.  There are in essence 3 things to consider.  Rotational Latency, the seek time itself, and the transfer time.  Generally speaking the average seek time is 1/3rd of the maximum seek time, or 30msec. But more information would be needed to calculate a more accurate read time.  
+
+2. Describe a TCP/IP packet in detail. Describe the header, how many bytes it is, and which components it contains. What data can come after the header? 
+
+- The tcp/ip packet is a basic unit of information in network transmissions. It is a set of rules for communication between devices.  It requires information to be split into packets containing a segment of the data, as well as the location the data is going.  
+
+-The header is 20 bytes.  it is made up of:
+  Source TCP port number (2 bytes)
+  Destination TCP port number (2 bytes)
+  Sequence number (4 bytes)
+  Acknowledgment Number (4 bytes)
+  TCP data offset (4 bits)
+  Reserved data (3 bits)
+  Control flags (up to 9 bits)
+  Window size (2 bytes)
+  TCP checksum (2 bytes)
+  urgent pointer (2 bytes)
+  TCP optional data (0 -40 bytes)
+
+The Data section follows the Header.  Its contents are the "payload" of the application.  the length is not specified in the header, but can be calculated by finding the difference of the two.  
+
+3. How does the network protocol guarantee that a TCP/IP packet is complete after transmission?
+
+-The IP handles the delivery of the data, while the TCP ensures that all packets were recieved, and that they were sent in the right order.  If packets are missing, the TCP will initiate a retransmission. The TCP splits up the data into "octets" and keeps track with the header.  
+
+4. What is the difference between TCP and IP?
+
+- IP assures that the packets are going to the correct place.  TCP ensures that the data is delivered.
+
+5. Why is 3d performance so much higher with a graphics card than without? Modern CPUs are extremely fast, what is limiting their performance?
+
